@@ -1,0 +1,3 @@
+[submodule "Carthage/Checkouts/ZXingObjC"]
+	path = Carthage/Checkouts/ZXingObjC
+	url = https://github.com/TheLevelUp/ZXingObjC.git
