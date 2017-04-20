@@ -139,7 +139,7 @@ public class BeaconListener: UIViewController, CLLocationManagerDelegate, UNUser
             if _beaconAd?.status["status"] as! Bool {                
                 for beacon in (_beaconAd?.beaconsUUID)! {
                     let UUID = NSUUID(UUIDString: beacon)
-                    let region = CLBeaconRegion(proximityUUID: UUID!, identifier: "")
+                    let region = CLBeaconRegion(proximityUUID: UUID!, identifier: beacon)
                     regions.append(region)
                 }
                 startListen()
@@ -150,6 +150,7 @@ public class BeaconListener: UIViewController, CLLocationManagerDelegate, UNUser
     public func startListen() {
         self.locationManager.startUpdatingLocation()
         for region in regions {
+            locationManager.startMonitoringForRegion(region)
             locationManager.startRangingBeaconsInRegion(region)
         }
     }
