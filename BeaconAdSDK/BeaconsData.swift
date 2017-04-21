@@ -12,12 +12,11 @@ class BeaconsData {
     var waitSeconds: UInt
     var beacons = [String: String]()
     
-    let file = "Beacons.txt" //this is the file. we will write to and read from it
+    let file = "Beacons.txt"
     let applicationSupportDirectory = NSSearchPathDirectory.ApplicationSupportDirectory
     let nsUserDomainMask = NSSearchPathDomainMask.UserDomainMask
     let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true)
     let fileManager = NSFileManager.defaultManager()
-    let text = "some text" //just a text
     
     internal init(hoursNotActive: UInt) {
         waitSeconds = hoursNotActive * 15

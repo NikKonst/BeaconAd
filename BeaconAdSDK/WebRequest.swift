@@ -37,16 +37,16 @@ class WebRequest {
         task.resume()
     }
     
-    static public func GetBeacons(uid: String, completion: (data: NSData?, response: NSURLResponse?, err: NSError?) -> Void) {
+    static internal func GetBeacons(uid: String, completion: (data: NSData?, response: NSURLResponse?, err: NSError?) -> Void) {
         makeGetRequest(getbeacons + uid, completion: completion)
     }
     
-    static public func GetClientUID(email: String, completion: (data: NSData?, response: NSURLResponse?, err: NSError?) -> Void) {
+    static internal func GetClientUID(email: String, completion: (data: NSData?, response: NSURLResponse?, err: NSError?) -> Void) {
         let params = "?email=" + email
         makeGetRequest(getclientuid + params, completion: completion)
     }
     
-    static public func GetAd(client_uid: String, adcompany_uid: String, completion: (data: NSData?, response: NSURLResponse?, err: NSError?) -> Void) {
+    static internal func GetAd(client_uid: String, adcompany_uid: String, completion: (data: NSData?, response: NSURLResponse?, err: NSError?) -> Void) {
         let postString = "user_uid=\(client_uid)&adcompany_uid=\(adcompany_uid)"
         
         makePostRequest(getad, body: postString, completion: completion)
